@@ -15,14 +15,11 @@ keep_cols <- read.table("/home/roman.sanz/data/tmhmm/outer_HKs.txt",
 df <- df[, (colnames(df) %in% keep_cols), drop = FALSE]                 
 phyla = rownames(df)
 
-
-
 phyla = c('Bacteroidota','Chloroflexota','Bacillota','Gammaproteobacteria','Alphaproteobacteria','Actinomycetota',
 'Verrucomicrobiota','Acidobacteriota','Desulfobacterota','Planctomycetota','Cyanobacteriota')
 df_bool <- df[, -ncol(df)]
 df_bool <- t(df_bool)
 df_bool<- df_bool == 1
-
 
 sets=colnames(df_bool)
 

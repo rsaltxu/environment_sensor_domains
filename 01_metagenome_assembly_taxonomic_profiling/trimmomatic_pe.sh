@@ -7,7 +7,7 @@ export LD_LIBRARY_PATH=/home/soft/jdk-23.0.2/lib:$LD_LIBRARY_PATH
 # Configuration
 TRIMMOMATIC_JAR="/home/soft/Trimmomatic-0.39/trimmomatic-0.39.jar"
 ADAPTERS="/home/soft/Trimmomatic-0.39/adapters/TruSeq3-PE.fa"
-OUTPUT_DIR="/home/usuaris/jramoneda/HK_annotation_base/trimmed2"
+OUTPUT_DIR="/HK_annotation_base/trimmed2"
 THREADS=16
 MEMORY="-Xmx8G"
 

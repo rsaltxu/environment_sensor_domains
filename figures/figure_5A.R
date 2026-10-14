@@ -6,11 +6,11 @@ library(grid)
 library(vegan)
 
 # --- Load data ---
-data <- read.csv("/home/roman.sanz/data/diamond_pblast/australia/HK_abundance_matrix_prot_50cov_50score.csv",
+data <- read.csv("/data/diamond_pblast/australia/HK_abundance_matrix_prot_50cov_50score.csv",
                  header = TRUE, row.names = 1)
 
 # Read the list of allowed column names
-keep_cols <- read.table("/home/roman.sanz/data/tmhmm/outer_HKs.txt", 
+keep_cols <- read.table("/data/tmhmm/outer_HKs.txt", 
                         header = FALSE, 
                         stringsAsFactors = FALSE)$V1
 
@@ -25,25 +25,22 @@ threshold <- 10   # for example: require at least 2 non-zero entries
 nonzero_counts <- colSums(data_matrix != 0)
 # Keep columns where non-zero occurrences meet the threshold
 data_matrix <- data_matrix[, nonzero_counts >= threshold]
-cat("Number of columns:", ncol(data_matrix), "\n")
 data_matrix <- log2(1e6*(data_matrix) + 1)
 
-
 # ---------------------------
-s_metadata <- read.csv("/home/roman.sanz/scripts/data/mapfile_base_subset_Aus.csv",
+s_metadata <- read.csv("/scripts/data/mapfile_base_subset_Aus.csv",
                        header = TRUE, row.names = 1)
 
-metagen_metadata <- read.csv("/home/roman.sanz/scripts/data/Metadata_metagenomes_selected_255_Aus.csv",
+metagen_metadata <- read.csv("/scripts/data/Metadata_metagenomes_selected_255_Aus.csv",
                        header = TRUE, row.names = 2)
-taxprof_data <- read.csv("/home/roman.sanz/data/singlem/australia/taxprof_singlem.csv",header=TRUE, row.names = 1)
+taxprof_data <- read.csv("/data/singlem/australia/taxprof_singlem.csv",header=TRUE, row.names = 1)
 
-HK_annotation <- read.csv("/home/roman.sanz/data/HK_related/outer_hk_fam_ligand_annot_v2.csv", header=TRUE, row.names = 1)
+HK_annotation <- read.csv("/data/HK_related/outer_hk_fam_ligand_annot_v2.csv", header=TRUE, row.names = 1)
 
 HK_annotation <- HK_annotation[colnames(data_matrix), ]
 HK_annotation <- HK_annotation[order(HK_annotation$Family), ]
 
 data_matrix <- data_matrix[,rownames(HK_annotation)]
-
 
 clean_names <- gsub("^X", "", rownames(s_metadata))
 rownames(s_metadata) <- clean_names
@@ -116,9 +113,7 @@ annotation_cols$HK_Family <- factor(annotation_cols$HK_Family)
 annotation_cols$Ligand <- factor(annotation_cols$Ligand)
 
 # ---------------------------
-# Combine barplot + heatmap
-# ---------------------------
-png("/home/roman.sanz/data/figures/CPM_Austr_outer_HKs_ligand_known.png", 
+png("/data/figures/CPM_Austr_outer_HKs_ligand_known.png", 
     width = 2000, height = 1600, res = 300)+
 pheatmap(
   data_matrix,

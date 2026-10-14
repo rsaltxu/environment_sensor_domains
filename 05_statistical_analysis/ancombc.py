@@ -26,7 +26,7 @@ data = pd.DataFrame(
     index=samples, columns=taxa)
 
 #Load metadata
-metadata=pd.read_csv("/home/roman.sanz/scripts/JAE_HK_Aridity/data/Australia_merged_metadata_wphylum.csv",header=0,index_col=0)
+metadata=pd.read_csv("/data/Australia_merged_metadata_wphylum.csv",header=0,index_col=0)
 
 #Drop NA values and remove samples in the semi-arid gap (AI 0.2-0.65)
 metadata = metadata.dropna(subset=["Aridity.index...annual.mean"])

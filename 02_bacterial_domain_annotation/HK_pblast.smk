@@ -7,7 +7,7 @@ with open('/data/sample_list.txt') as sample_list_file:
 
 rule all:
     input:
-        expand('/home/roman.sanz/data/diamond_pblast/normal/blastp_sample_{sample}.tsv',sample=samples)
+        expand('/data/diamond_pblast/normal/blastp_sample_{sample}.tsv',sample=samples)
 
 
 rule db_blastp_normal:

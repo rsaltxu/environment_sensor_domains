@@ -3,14 +3,12 @@
 library(ggplot2)
 library(vegan)
 
-data  <- read.csv('/home/roman.sanz/data/diamond_pblast/australia/Australia_HK_BC_dissimilarity.csv',header = TRUE, 
+data  <- read.csv('/data/Australia_HK_BC_dissimilarity.csv',header = TRUE, #pre-computed matrix
   row.names = 1)
 data_matrix <- as.matrix(data)
 
-
-metadata <-read.csv('/home/roman.sanz/scripts/JAE_HK_Aridity/data/Australia_merged_metadata_wphylum.csv',
+metadata <-read.csv('/data/Australia_merged_metadata_wphylum.csv',
                 header = TRUE, row.names = 1)
-
 
 metadata$general_env_feature[metadata$general_env_feature != "Arid"] <- 
   "Humid"
@@ -78,9 +76,8 @@ ggplot() +
     axis.text.y = element_text(size = 20),
     axis.title.x = element_text(size = 26),
     axis.title.y = element_text(size = 26))
-ggsave("/home/roman.sanz/data/figures/australia_dbRDA_abiotic.png",
+ggsave("/data/figures/australia_dbRDA_abiotic.png",
        width = 12,
        height = 8,
        units = "in",
        dpi = 300)
-

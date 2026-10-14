@@ -5,11 +5,10 @@
 
 library(vegan)
 
-
 ###Load precomputed matrices
-gtdb_coph=read.csv('/home/roman.sanz/data/diamond_pblast/gtdb_reps/GTDB_famrep_coph_dist_v2.csv',
+gtdb_coph=read.csv('/data/diamond_pblast/gtdb_reps/GTDB_famrep_coph_dist_v2.csv',
  header = TRUE,row.names = 1)
-jacc_HK=read.csv('/home/roman.sanz/data/diamond_pblast/gtdb_reps/GTDB_famrep_HK_jacc_dist.csv',
+jacc_HK=read.csv('/data/diamond_pblast/gtdb_reps/GTDB_famrep_HK_jacc_dist.csv',
  header = TRUE,row.names = 1)
 
 gtdb_coph=as.matrix(gtdb_coph)

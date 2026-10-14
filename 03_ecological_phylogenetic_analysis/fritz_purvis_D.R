@@ -9,18 +9,18 @@ library(readr)
 
 
 #Load data and keep one representative per family on the top 11 phyla
-df <- read.csv("/home/roman.sanz/data/diamond_pblast/gtdb_reps/family_rep_HK_abundance_matrix_prot_90cov_50score.csv",
+df <- read.csv("/data/diamond_pblast/gtdb_reps/family_rep_HK_abundance_matrix_prot_90cov_50score.csv",
                  header = TRUE, row.names = 1)
-keep_rows=read.table("/home/roman.sanz/data/diamond_pblast/gtdb_reps/family_reps_top_phyla_list.txt", 
+keep_rows=read.table("/data/diamond_pblast/gtdb_reps/family_reps_top_phyla_list.txt", 
                         header = FALSE, 
                         stringsAsFactors = FALSE)$V1
 df=df[(rownames(df) %in% keep_rows),,drop=FALSE]
 
 #load annotations for sensor domains-ligand
-hk_annotation=read.csv('/home/roman.sanz/data/HK_related/outer_hk_fam_ligand_annot_v2.csv',header=TRUE, row.names = 1)
+hk_annotation=read.csv('/data/HK_related/outer_hk_fam_ligand_annot_v2.csv',header=TRUE, row.names = 1)
 
 #load GTDB tree
-tree=read.tree(file="/home/roman.sanz/data/phylomodel/family_reps_top_phyla_gtdb.tree")
+tree=read.tree(file="/data/phylomodel/family_reps_top_phyla_gtdb.tree")
 
 ###Process data to binary table
 trait_groups <- list(
@@ -31,7 +31,6 @@ trait_groups <- list(
   Dival_cat = rownames(hk_annotation[hk_annotation$Ligand=='Divalent cation',]),
   b_type_heme = rownames(hk_annotation[hk_annotation$Ligand=='b-type heme binding',]),
   c_type_heme = rownames(hk_annotation[hk_annotation$Ligand=='c-type heme binding',]),
-  
   Carboxylate = rownames(hk_annotation[hk_annotation$Ligand=='Carboxilate',])
 )
 

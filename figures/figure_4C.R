@@ -3,15 +3,15 @@
 library(grid)
 library(pheatmap)
 
-hk_to_keep= read.table("/home/roman.sanz/data/tmhmm/outer_HKs.txt", 
+hk_to_keep= read.table("/data/tmhmm/outer_HKs.txt", 
                         header = FALSE, 
                         stringsAsFactors = FALSE)$V1#we must filter to just get external HKS
 
-original=read.csv("/home/roman.sanz/data/singlem/australia/australia_custom_abundances.csv",header=TRUE,
+original=read.csv("/data/singlem/australia/australia_custom_abundances.csv",header=TRUE,
 row.names=1)
 
-signif_corr2 = read.csv("/home/roman.sanz/data/australia_significant_correlations_singlem.csv",header = TRUE, row.names = 1)
-all_corr = read.csv("/home/roman.sanz/data/australia_all_correlations_singlem.csv",header = TRUE, row.names = 1)
+signif_corr2 = read.csv("/data/australia_significant_correlations_singlem.csv",header = TRUE, row.names = 1)
+all_corr = read.csv("/data/australia_all_correlations_singlem.csv",header = TRUE, row.names = 1)
 
 signif_corr2 <- signif_corr2[(rownames(signif_corr2) %in% hk_to_keep), , drop = FALSE]# in this case, phyla are pre-filtered
 
@@ -29,11 +29,11 @@ mat[is.na(mat)] <- 0
 row_dist <- dist(mat, method = "euclidean")
 col_dist <- dist(t(mat), method = "euclidean")
 
-Aridity_prevalence <- read.csv("/home/roman.sanz/data/singlem/australia/australia_custom_WAridity.csv", header=TRUE, row.names = 1)
+Aridity_prevalence <- read.csv("/data/singlem/australia/australia_custom_WAridity.csv", header=TRUE, row.names = 1)
 
 Aridity_prevalence=Aridity_prevalence[c('W')]
 
-png("/home/roman.sanz/data/figures/spercorr_r_singlem_zoom_v2_W.png", 
+png("/data/figures/spercorr_r_singlem_zoom_v2_W.png", 
     width = 2500, height = 2500, res = 300)
 pheatmap(mat,
          color = colorRampPalette(c("blue", "white", "red"))(100),
@@ -52,5 +52,5 @@ pheatmap(mat,
 dev.off()
 # ----------------------
 # Write column names to separate files
-writeLines(cluster1_rows, "/home/roman.sanz/data/HK_related/spear_cor_arid_1201.txt")
-writeLines(cluster2_rows, "/home/roman.sanz/data/HK_related/spear_cor_nonarid_1213.txt")
+writeLines(cluster1_rows, "/data/HK_related/spear_cor_arid_1201.txt")
+writeLines(cluster2_rows, "/data/HK_related/spear_cor_nonarid_1213.txt")

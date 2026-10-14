@@ -6,10 +6,10 @@ ligands=c('AminoAc','Purine','dival_cat',
 'btype_heme','ctype_heme','FAD','Carboxilate', 
 '4HydroCinn','BioAm')
 
-### NOW SAME PROCEDURE FOR EVERY LIGAND TYPE PORQUE ESTOY LOCO
+### Now we follow the same procedure for every ligand type
 ### BioAm
 
-df <- read.csv('/home/roman.sanz/data/HK_related/BioAm_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/BioAm_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 #print(df)
 
@@ -62,7 +62,7 @@ p <- ggplot(df, aes(x = Habitat, y = BioAm_CPM, fill = Habitat)) +
 
 # Add significance bars manually
 p 
-ggsave("/home/roman.sanz/data/figures/Aus_BioAm_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_BioAm_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -71,7 +71,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_BioAm_CPM_aridity_boxplot_annotfree.pn
 
 ### AminoAc
 
-df <- read.csv('/home/roman.sanz/data/HK_related/AminoAc_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/AminoAc_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -126,7 +126,7 @@ p <- ggplot(df, aes(x = Habitat, y = AminoAc_CPM, fill = Habitat)) +
 # Add significance bars manually
 p
 
-ggsave("/home/roman.sanz/data/figures/Aus_AminoAc_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_AminoAc_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -135,7 +135,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_AminoAc_CPM_aridity_boxplot_annotfree.
 
 ### Purine
 
-df <- read.csv('/home/roman.sanz/data/HK_related/Purine_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/Purine_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -190,7 +190,7 @@ p <- ggplot(df, aes(x = Habitat, y = Purine_CPM, fill = Habitat)) +
 # Add significance bars manually
 p 
 
-ggsave("/home/roman.sanz/data/figures/Aus_Purine_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_Purine_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -199,7 +199,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_Purine_CPM_aridity_boxplot_annotfree.p
 
 ### dival_cat
 
-df <- read.csv('/home/roman.sanz/data/HK_related/dival_cat_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/dival_cat_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -256,7 +256,7 @@ p <- ggplot(df, aes(x = Habitat, y = dival_cat_CPM, fill = Habitat)) +
 # Add significance bars manually
 p
 
-ggsave("/home/roman.sanz/data/figures/Aus_dival_cat_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_dival_cat_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -265,7 +265,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_dival_cat_CPM_aridity_boxplot_annotfre
 
 ### btype_heme
 
-df <- read.csv('/home/roman.sanz/data/HK_related/btype_heme_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/btype_heme_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -322,7 +322,7 @@ p <- ggplot(df, aes(x = Habitat, y = btype_heme_CPM, fill = Habitat)) +
 # Add significance bars manually
 p 
 
-ggsave("/home/roman.sanz/data/figures/Aus_btype_heme_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_btype_heme_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -331,7 +331,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_btype_heme_CPM_aridity_boxplot_annotfr
 
 ### ctype_heme
 
-df <- read.csv('/home/roman.sanz/data/HK_related/ctype_heme_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/ctype_heme_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -388,7 +388,7 @@ p <- ggplot(df, aes(x = Habitat, y = ctype_heme_CPM, fill = Habitat)) +
 # Add significance bars manually
 p
 
-ggsave("/home/roman.sanz/data/figures/Aus_ctype_heme_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_ctype_heme_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -397,7 +397,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_ctype_heme_CPM_aridity_boxplot_annotfr
 
 ### FAD
 
-df <- read.csv('/home/roman.sanz/data/HK_related/FAD_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/FAD_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -454,7 +454,7 @@ p <- ggplot(df, aes(x = Habitat, y = FAD_CPM, fill = Habitat)) +
 # Add significance bars manually
 p 
 
-ggsave("/home/roman.sanz/data/figures/Aus_FAD_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_FAD_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -463,7 +463,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_FAD_CPM_aridity_boxplot_annotfree.png"
 
 ### Carboxilate
 
-df <- read.csv('/home/roman.sanz/data/HK_related/Carboxilate_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/Carboxilate_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 #print(df)
 
@@ -521,7 +521,7 @@ p <- ggplot(df, aes(x = Habitat, y = Carboxilate_CPM, fill = Habitat)) +
 # Add significance bars manually
 p 
 
-ggsave("/home/roman.sanz/data/figures/Aus_Carboxilate_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_Carboxilate_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
@@ -529,7 +529,7 @@ ggsave("/home/roman.sanz/data/figures/Aus_Carboxilate_CPM_aridity_boxplot_annotf
 
 ### 4HydroCinn
 
-df <- read.csv('/home/roman.sanz/data/HK_related/HydroCinn_CPM_Aus.csv',header=TRUE,row.names=1)
+df <- read.csv('/data/HK_related/HydroCinn_CPM_Aus.csv',header=TRUE,row.names=1)
 df$Habitat <- factor(df$Habitat,levels = c("Arid", "Semiarid", "Humid"))
 
 # Shapiro-Wilk normality test for each group
@@ -584,7 +584,7 @@ p <- ggplot(df, aes(x = Habitat, y = HydroCinn_CPM, fill = Habitat)) +
 # Add significance bars manually
 p 
 
-ggsave("/home/roman.sanz/data/figures/Aus_HydroCinn_CPM_aridity_boxplot_annotfree.png",
+ggsave("/data/figures/Aus_HydroCinn_CPM_aridity_boxplot_annotfree.png",
        width = 4,
        height = 5,
        units = "in",
